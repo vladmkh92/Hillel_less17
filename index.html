@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        function Student(name, surname, bday) {
+            this.name = name;
+            this.surname = surname;
+            this.bday = bday;
+            this.attendance = Array(10);
+            this.grade = Array(10);
+            this.present = function () {
+                for (let i = 0; i <= this.attendance.length; i++) {
+                    if (this.attendance[i] === undefined) {
+                        this.attendance[i] = true;
+                        break;
+                    }
+                }
+                return this.attendance.length = 10;
+            };
+
+            this.absent = function () {
+                for (let i = 0; i <= this.attendance.length; i++) {
+                    if (this.attendance[i] === undefined) {
+                        this.attendance[i] = false;
+                        break;
+                    }
+                }
+
+                return this.attendance.length = 10;
+            };
+
+            this.mark = function (score = 0) {
+                for (let i = 0; i <= this.grade.length; i++) {
+
+                    if (this.grade[i] === undefined) {
+                        this.grade[i] = score;
+                        break;
+                    }
+                }
+
+                return this.grade.length = 10;
+            };
+
+            this.summary = function () {
+                let avgGrade = this.grade.reduce((sum, elem) => (sum + elem)) / this.grade.length;
+                let avgAttendance = this.attendance.reduce((sum, elem) => (sum + elem)) / this.attendance.length;
+                if (avgGrade > 9 && avgAttendance > 0.9) {
+                    return "Ути какой молодчинка!";
+                } else if (avgGrade < 9 && avgAttendance < 0.9) {
+                    return "Редиска!";
+                } else {
+                    return "Норм, но можно лучше";
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
